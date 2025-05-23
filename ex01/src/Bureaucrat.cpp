@@ -2,7 +2,7 @@
 // ║ Author:                Clément Colin                                                         ║
 // ║ Create Time:           2025-05-17 10:51:42                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-23 09:29:58                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-24 08:37:45                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
@@ -44,6 +44,22 @@ void Bureaucrat::decrementGrade()
 	checkGrade(_grade);
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout
+			<< _name << " couldn't sign " << form.getName()
+			<< " because: " << e.what() << std::endl;
+	}
+	
+}
 
 //-----------------------------------------------------------------------------------------------//
 //                                       NON MEMBER FUNCTIONS                                    //

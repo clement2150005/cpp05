@@ -2,12 +2,13 @@
 // ║ Author:                Clément Colin                                                         ║
 // ║ Create Time:           2025-05-17 10:54:11                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-23 10:00:24                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-24 08:26:54                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
 #include "Form.hpp"
 #include "CheckGrade.hpp"
+#include "Bureaucrat.hpp"
 
 //-----------------------------------------------------------------------------------------------//
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
@@ -49,6 +50,16 @@ const std::string	Form::getName() const {return _name ;}
 bool				Form::getSigned() const {return _signed ;}
 int					Form::getsignGrade() const {return _signGrade ;}
 int					Form::getExecGrade() const {return _execGrade ;}
+
+//-----------------------------------------------------------------------------------------------//
+//                                       	   METHODS                                           //
+//-----------------------------------------------------------------------------------------------//
+
+void				Form::beSigned(Bureaucrat &bureaucrat) 
+{
+	checkSign(bureaucrat.getGrade(), _signGrade);
+	_signed = true;
+}
 
 //-----------------------------------------------------------------------------------------------//
 //                                       NON MEMBER FUNCTIONS                                    //
