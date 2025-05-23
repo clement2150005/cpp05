@@ -1,62 +1,50 @@
 // ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
 // ║ Author:                Clément Colin                                                         ║
-// ║ Create Time:           2025-05-15 09:45:35                        |\      _,,,---,,_         ║
+// ║ Create Time:           2025-05-17 10:51:42                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-17 11:59:41                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-23 09:05:34                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
-#include "Bureaucrat.hpp"
-#include "Exceptions.hpp"
+#include <iostream>
 
+class Bureaucrat
+{
+private:
+	const std::string	_name;
+	int					_grade;
+	
+	Bureaucrat &operator=(const Bureaucrat &other);
+
+public:
 //-----------------------------------------------------------------------------------------------//
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
 //-----------------------------------------------------------------------------------------------//
 
-Bureaucrat::Bureaucrat() : _name("John Smith"), _grade(150) {checkGrade();}
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade) {checkGrade();}
-Bureaucrat::Bureaucrat(const Bureaucrat &other): _name(other._name), _grade(other._grade) {}
-Bureaucrat::~Bureaucrat() {}
+	Bureaucrat();
+	Bureaucrat(std::string name, int grade);
+	Bureaucrat(const Bureaucrat &other);
+	~Bureaucrat();
 
 
 //-----------------------------------------------------------------------------------------------//
 //                                             GETTERS                                           //
 //-----------------------------------------------------------------------------------------------//
+	
+	const std::string	getName() const;
+	int					getGrade() const;
 
-const std::string	Bureaucrat::getName() const {return _name;}
-int					Bureaucrat::getGrade() const {return _grade;}
-
-
+	
 //-----------------------------------------------------------------------------------------------//
 //                                             METHODS                                           //
 //-----------------------------------------------------------------------------------------------//
 
-void	Bureaucrat::checkGrade() const
-{
-	if (_grade < 1)
-		throw GradeTooHighException();
-	if (_grade > 150)
-		throw GradeTooLowException();
-}
+	void				incrementGrade();
+	void				decrementGrade();
 
-void	Bureaucrat::incrementGrade()
-{
-	_grade--;
-	checkGrade();
-}
-
-void	Bureaucrat::decrementGrade()
-{
-	_grade++;
-	checkGrade();
-}
-
-
+};
 //-----------------------------------------------------------------------------------------------//
 //                                       NON MEMBER FUNCTIONS                                    //
 //-----------------------------------------------------------------------------------------------//
 
-std::ostream	&operator<<(std::ostream &out, const Bureaucrat &b)
-{
-	return (out << b.getName() << ", bureaucrat grade " << b.getGrade() << "." << std::endl);
-}
+std::ostream	&operator<<(std::ostream &out, const Bureaucrat &b);

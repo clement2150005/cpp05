@@ -1,12 +1,12 @@
 #  ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
 #  ║ Author:                Clément Colin                                                         ║
-#  ║ Create Time:           2025-05-15 09:45:22                        |\      _,,,---,,_         ║
+#  ║ Create Time:           2025-05-17 10:51:42                        |\      _,,,---,,_         ║
 #  ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-#  ║ Modified time:         2025-05-17 11:57:44                       |,4-  ) )-,_. ,\ (  `'-'    ║
+#  ║ Modified time:         2025-05-17 12:05:43                       |,4-  ) )-,_. ,\ (  `'-'    ║
 #  ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 #  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
-NAME        =   Mommy,\ when\ I\ grow\ up,\ I\ want\ to\ be\ a\ bureaucrat!
+NAME        =   Form\ up,\ maggots!
 SRC_DIR     =   src
 OBJ_DIR     =   obj
 INCLUDE_DIR =   include
