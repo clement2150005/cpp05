@@ -2,13 +2,14 @@
 // ║ Author:                Clément Colin                                                         ║
 // ║ Create Time:           2025-05-17 10:51:42                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-24 09:01:27                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-26 14:57:37                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
 #include "Bureaucrat.hpp"
 #include "Exceptions.hpp"
 #include "CheckGrade.hpp"
+#include "AForm.hpp"
 
 //-----------------------------------------------------------------------------------------------//
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
@@ -46,7 +47,6 @@ void Bureaucrat::decrementGrade()
 
 void Bureaucrat::signForm(AForm &form)
 {
-	
 	try
 	{
 		form.beSigned(*this);
@@ -58,7 +58,21 @@ void Bureaucrat::signForm(AForm &form)
 			<< _name << " couldn't sign " << form.getName()
 			<< " because: " << e.what() << std::endl;
 	}
-	
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout
+			<< _name << " couldn't execute " << form.getName()
+			<< " because: " << e.what() << std::endl;
+	}
 }
 
 //-----------------------------------------------------------------------------------------------//

@@ -6,7 +6,7 @@
 #  ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 #  ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
-NAME        =   AForm\ up,\ maggots!
+NAME        =   No,\ you\ need\ form\ 28B,\ not\ 28C...
 SRC_DIR     =   src
 OBJ_DIR     =   obj
 INCLUDE_DIR =   include

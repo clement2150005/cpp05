@@ -2,7 +2,7 @@
 // ║ Author:                Clément Colin                                                         ║
 // ║ Create Time:           2025-05-17 10:54:17                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-23 11:53:03                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-26 14:50:14                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
@@ -48,6 +48,8 @@ public:
 //-----------------------------------------------------------------------------------------------//
 
 	void				beSigned(Bureaucrat &bureaucrat);
+	void				execute(Bureaucrat const &executor) const;
+	virtual void		executeAction() const = 0;
 };
 
 

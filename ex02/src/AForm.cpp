@@ -2,13 +2,14 @@
 // ║ Author:                Clément Colin                                                         ║
 // ║ Create Time:           2025-05-17 10:54:11                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-24 08:26:54                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-26 15:14:59                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
 #include "AForm.hpp"
 #include "CheckGrade.hpp"
 #include "Bureaucrat.hpp"
+#include "Exceptions.hpp"
 
 //-----------------------------------------------------------------------------------------------//
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
@@ -55,10 +56,18 @@ int					AForm::getExecGrade() const {return _execGrade ;}
 //                                       	   METHODS                                           //
 //-----------------------------------------------------------------------------------------------//
 
-void				AForm::beSigned(Bureaucrat &bureaucrat) 
+void	AForm::beSigned(Bureaucrat &bureaucrat) 
 {
-	checkSign(bureaucrat.getGrade(), _signGrade);
+	checkClearance(bureaucrat.getGrade(), _signGrade);
 	_signed = true;
+}
+
+void	AForm::execute(Bureaucrat const &executor) const
+{
+	checkClearance(executor.getGrade(), _execGrade);
+	if (!_signed)
+		throw FormNotSignedException();
+	executeAction();
 }
 
 //-----------------------------------------------------------------------------------------------//

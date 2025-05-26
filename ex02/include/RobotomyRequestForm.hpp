@@ -3,7 +3,9 @@
 class RobotomyRequestForm : public AForm
 {
 private:
+	std::string _target;
 	
+	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 	
 public:
 
@@ -11,20 +13,20 @@ public:
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
 //-----------------------------------------------------------------------------------------------//
 
-	RobotomyRequestForm();
+	RobotomyRequestForm(const std::string &target);
 	RobotomyRequestForm(const RobotomyRequestForm &other);
-	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 	~RobotomyRequestForm();
 
 //-----------------------------------------------------------------------------------------------//
 //                                             GETTERS                                           //
 //-----------------------------------------------------------------------------------------------//
 
+	std::string getTarget();
+
 //-----------------------------------------------------------------------------------------------//
 //                                             METHODS                                           //
 //-----------------------------------------------------------------------------------------------//
 
-//-----------------------------------------------------------------------------------------------//
-//                                       NON MEMBER FUNCTIONS                                    //
-//-----------------------------------------------------------------------------------------------//
+	void	executeAction() const;
+
 };

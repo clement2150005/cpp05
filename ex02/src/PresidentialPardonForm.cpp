@@ -3,21 +3,12 @@
 //-----------------------------------------------------------------------------------------------//
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
 //-----------------------------------------------------------------------------------------------//
-PresidentialPardonForm::PresidentialPardonForm() {}
+
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target)
+	: AForm("Presidential Pardon " + target, 25, 5) ,_target(target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other)
-{
-	// copy members here
-}
-
-PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &other)
-{
-	if (this != &other)
-	{
-		// copy members here
-	}
-	return (*this);
-}
+	: AForm(other), _target(other._target) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
@@ -25,10 +16,13 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 //                                             GETTERS                                           //
 //-----------------------------------------------------------------------------------------------//
 
+std::string PresidentialPardonForm::getTarget() { return (_target); }
+
 //-----------------------------------------------------------------------------------------------//
 //                                             METHODS                                           //
 //-----------------------------------------------------------------------------------------------//
 
-//-----------------------------------------------------------------------------------------------//
-//                                       NON MEMBER FUNCTIONS                                    //
-//-----------------------------------------------------------------------------------------------//
+void	PresidentialPardonForm::executeAction() const
+{
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+}

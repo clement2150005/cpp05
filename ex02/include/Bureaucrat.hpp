@@ -2,13 +2,14 @@
 // ║ Author:                Clément Colin                                                         ║
 // ║ Create Time:           2025-05-17 10:51:42                        |\      _,,,---,,_         ║
 // ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
-// ║ Modified time:         2025-05-24 09:01:24                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Modified time:         2025-05-26 12:15:11                       |,4-  ) )-,_. ,\ (  `'-'    ║
 // ║ Description:                                                    '---''(_/--'  `-'\_)         ║
 // ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
 
 #pragma once
 #include <iostream>
-#include "AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -41,9 +42,10 @@ public:
 //                                             METHODS                                           //
 //-----------------------------------------------------------------------------------------------//
 
-	void				incrementGrade();
-	void				decrementGrade();
-	void				signForm(AForm &form);
+	void	incrementGrade();
+	void	decrementGrade();
+	void	signForm(AForm &form);
+	void	executeForm(AForm const &form) const;
 
 };
 //-----------------------------------------------------------------------------------------------//

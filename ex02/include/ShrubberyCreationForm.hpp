@@ -1,9 +1,19 @@
+// ╔══════════════════════════════════════════════════════════════════════════════════════════════╗
+// ║ Author:                Clément Colin                                                         ║
+// ║ Create Time:           2025-05-24 09:19:10                        |\      _,,,---,,_         ║
+// ║ Modified by:           Clément Colin                        ZZZzz /,`.-'`'    -.  ;-;;,_     ║
+// ║ Modified time:         2025-05-26 15:38:45                       |,4-  ) )-,_. ,\ (  `'-'    ║
+// ║ Description:                                                    '---''(_/--'  `-'\_)         ║
+// ╚══════════════════════════════════════════════════════════════════════════════════════════════╝
+
 #include "AForm.hpp"
 
 class ShrubberyCreationForm : public AForm
 {
 private:
+	std::string _target;
 	
+	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 	
 public:
 
@@ -11,20 +21,20 @@ public:
 //                                     CONSTRUCTORS / DESTRUCTOR                                 //
 //-----------------------------------------------------------------------------------------------//
 
-	ShrubberyCreationForm();
+	ShrubberyCreationForm(const std::string &target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &other);
-	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &other);
 	~ShrubberyCreationForm();
 
 //-----------------------------------------------------------------------------------------------//
 //                                             GETTERS                                           //
 //-----------------------------------------------------------------------------------------------//
 
+	std::string getTarget();
+
 //-----------------------------------------------------------------------------------------------//
 //                                             METHODS                                           //
 //-----------------------------------------------------------------------------------------------//
 
-//-----------------------------------------------------------------------------------------------//
-//                                       NON MEMBER FUNCTIONS                                    //
-//-----------------------------------------------------------------------------------------------//
+	void	executeAction() const;
+
 };
